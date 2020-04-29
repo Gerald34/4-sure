@@ -1,0 +1,69 @@
+<div class="row">
+
+  <div class="col-lg-2">
+    <mat-card>
+      <h4>Enable search</h4>
+      <mat-slide-toggle (change)="enableSearch($event)">Off/On</mat-slide-toggle>
+    </mat-card>
+  </div>
+
+  <div class="col-lg-2">
+    <mat-card>
+      <h4>Close selection?</h4>
+      <mat-slide-toggle (change)="closeOnChange($event)">Off/On</mat-slide-toggle>
+    </mat-card>
+  </div>
+
+  <div class="col-lg-2">
+    <mat-card>
+      <h4>Select / Deselect</h4>
+      <mat-slide-toggle (change)="selectAllOnChange($event)">Off/On</mat-slide-toggle>
+    </mat-card>
+  </div>
+
+  <div class="col-lg-6">
+    <mat-card>
+      <mat-form-field>
+        <!-- Multiple selection -->
+        <mat-label>{{ MultipleSelectorLabel }}</mat-label>
+        <mat-select #multipleSelect [formControl]="countryMultiCtrl" (selectionChange)="onMultipleSelection($event)"
+                    multiple required>
+          <mat-option *ngIf="multipleSearchFunction">
+            <ngx-mat-select-search [formControl]="countryMultiFilterCtrl" placeholderLabel="Find country..."
+                                   noEntriesFoundLabel="'no matching bank found'">
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngIf="selectAll" [value]="0" (click)="toggleAllSelection()">Select All Countries</mat-option>
+          <mat-option *ngFor="let country of filteredCountriesMulti | async" [value]="country">
+            {{ country.name }}
+          </mat-option>
+        </mat-select>
+        <!-- Multiple selection -->
+      </mat-form-field>
+    </mat-card>
+  </div>
+
+</div>
+
+
+  <div class="row" style="margin-top: 20px">
+    <div class="col-lg-4" *ngFor="let info of information">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <img [src]="('https://www.countryflags.io/' + info.alpha2Code + '/flat/64.png')" class="img-fluid"/>
+          </div>
+          <mat-card-title>{{ info.name }} | {{ info.alpha2Code }}</mat-card-title>
+          <mat-card-subtitle>Continent: {{ info.region }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Capital City: {{ info.capital }}</p>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

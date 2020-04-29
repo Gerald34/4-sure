@@ -1,0 +1,22 @@
+$primary-color: #3C4156;
+$secondary-color: #3C4156;
+$font-stack: 'Titillium Web', sans-serif;
+
+.box {
+  height: 80px;
+  padding: 15px;
+  -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-slide-toggle-content {
+  font: 100% $font-stack;
+  color: $primary-color;
+  font-size: 12px;
+  font-weight: 600;
+}
