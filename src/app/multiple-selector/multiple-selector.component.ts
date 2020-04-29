@@ -85,7 +85,7 @@ export class MultipleSelectorComponent implements OnInit, AfterViewInit, OnDestr
       this.filteredCountriesMulti.next(this.countryData.slice());
       return;
     } else { search = search.toLowerCase(); }
-    // filter the banks
+    // filter
     this.filteredCountriesMulti.next(
       this.countryData.filter(country => country.name.toLowerCase().indexOf(search) > -1)
     );
