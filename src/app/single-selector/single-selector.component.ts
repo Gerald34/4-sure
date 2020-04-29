@@ -74,7 +74,7 @@ export class SingleSelectorComponent implements OnInit, AfterViewInit, OnDestroy
     } else {
       search = search.toLowerCase();
     }
-    // filter the banks
+    // filter
     this.filteredCountries.next(
       this.countryListing.filter(country => country.name.toLowerCase().indexOf(search) > -1)
     );
